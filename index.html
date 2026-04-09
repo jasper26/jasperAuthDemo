@@ -10,6 +10,11 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+  <div class="grid-overlay"></div>
+
   <div class="page-shell">
     <header class="topbar">
       <div class="brand-wrap">
@@ -26,22 +31,24 @@
     </header>
 
     <header class="hero">
-      <h1 data-i18n="heroTitle">Anti-Counterfeit Verification</h1>
-      <p class="hero-subtitle" data-i18n="heroSubtitle">
-        Enter the anti-counterfeit code or open a direct code URL to verify product data.
-      </p>
+      <div class="hero-panel">
+        <div class="hero-glow"></div>
+        <h1 data-i18n="heroTitle">Anti-Counterfeit Verification</h1>
+        <p class="hero-subtitle" data-i18n="heroSubtitle">
+          Fast, secure and trusted product authentication.
+        </p>
+      </div>
     </header>
 
     <main class="main-content">
       <section class="search-card">
+        <div class="card-glow"></div>
+
         <div class="section-head">
           <div>
             <h2 data-i18n="verifyTitle">Verify Code</h2>
-            <p class="section-desc">
-              <span data-i18n="verifyDescPrefix">
-                You can manually enter a code, or open this page with a URL path such as
-              </span>
-              <span class="inline-code">/XAJI0Y6DPBHS</span>.
+            <p class="section-desc" data-i18n="verifyInstruction">
+              Please enter your anti-counterfeit verification code.
             </p>
           </div>
         </div>
@@ -61,9 +68,6 @@
           <button class="ghost-btn" type="button" data-code="XAJI0Y6DPBHS" data-i18n="tryDemo">
             Try Demo Code
           </button>
-          <button class="ghost-btn" type="button" id="copyDirectLinkBtn" data-i18n="copyDirectLink">
-            Copy Direct Link
-          </button>
         </div>
       </section>
 
@@ -73,6 +77,8 @@
       </section>
 
       <section id="resultCard" class="result-card hidden">
+        <div class="card-glow"></div>
+
         <div class="result-header">
           <div>
             <div class="result-label" data-i18n="resultLabel">Verification Result</div>
