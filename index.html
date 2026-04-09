@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lebal Auth Code Verification</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <div class="hero-badge">AUTH DEMO</div>
+      </div>
+
+      <div class="lang-switch" aria-label="Language Switcher">
+        <button class="lang-btn active" type="button" data-lang="en">EN</button>
+        <button class="lang-btn" type="button" data-lang="zh-Hant">繁中</button>
+        <button class="lang-btn" type="button" data-lang="zh-Hans">简中</button>
+        <button class="lang-btn" type="button" data-lang="ja">日本語</button>
+        <button class="lang-btn" type="button" data-lang="ko">한국어</button>
+      </div>
+    </header>
+
+    <header class="hero">
+      <h1 data-i18n="heroTitle">Anti-Counterfeit Verification</h1>
+      <p class="hero-subtitle" data-i18n="heroSubtitle">
+        Enter the anti-counterfeit code or open a direct code URL to verify product data.
+      </p>
+    </header>
+
+    <main class="main-content">
+      <section class="search-card">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="verifyTitle">Verify Code</h2>
+            <p class="section-desc">
+              <span data-i18n="verifyDescPrefix">
+                You can manually enter a code, or open this page with a URL path such as
+              </span>
+              <span class="inline-code">/XAJI0Y6DPBHS</span>.
+            </p>
+          </div>
+        </div>
+
+        <div class="search-row">
+          <input
+            id="codeInput"
+            type="text"
+            data-i18n-placeholder="inputPlaceholder"
+            placeholder="Enter anti-counterfeit code"
+            autocomplete="off"
+          />
+          <button id="searchBtn" type="button" data-i18n="searchBtn">Search</button>
+        </div>
+
+        <div class="example-row">
+          <button class="ghost-btn" type="button" data-code="XAJI0Y6DPBHS" data-i18n="tryDemo">
+            Try Demo Code
+          </button>
+          <button class="ghost-btn" type="button" id="copyDirectLinkBtn" data-i18n="copyDirectLink">
+            Copy Direct Link
+          </button>
+        </div>
+      </section>
+
+      <section id="statusCard" class="status-card hidden" aria-live="polite">
+        <div id="statusBadge" class="status-badge">Status</div>
+        <div id="statusMessage" class="status-message"></div>
+      </section>
+
+      <section id="resultCard" class="result-card hidden">
+        <div class="result-header">
+          <div>
+            <div class="result-label" data-i18n="resultLabel">Verification Result</div>
+            <h2 id="productTitle">Product Information</h2>
+          </div>
+          <div id="recordStatusPill" class="pill">-</div>
+        </div>
+
+        <div class="data-grid">
+          <div class="data-item">
+            <span class="data-key" data-i18n="anti_counterfeit_code">Anti-counterfeit Code</span>
+            <span id="anti_counterfeit_code" class="data-value">-</span>
+          </div>
+
+          <div class="data-item">
+            <span class="data-key" data-i18n="company_name">Company Name</span>
+            <span id="company_name" class="data-value">-</span>
+          </div>
+
+          <div class="data-item">
+            <span class="data-key" data-i18n="product_name">Product Name</span>
+            <span id="product_name" class="data-value">-</span>
+          </div>
+
+          <div class="data-item">
+            <span class="data-key" data-i18n="batch_no">Batch No</span>
+            <span id="batch_no" class="data-value">-</span>
+          </div>
+
+          <div class="data-item">
+            <span class="data-key" data-i18n="manufacture_date">Manufacture Date</span>
+            <span id="manufacture_date" class="data-value">-</span>
+          </div>
+
+          <div class="data-item">
+            <span class="data-key" data-i18n="expiry_date">Expiry Date</span>
+            <span id="expiry_date" class="data-value">-</span>
+          </div>
+
+          <div class="data-item">
+            <span class="data-key" data-i18n="market">Market</span>
+            <span id="market" class="data-value">-</span>
+          </div>
+
+          <div class="data-item">
+            <span class="data-key" data-i18n="manufacturing_site">Manufacturing Site</span>
+            <span id="manufacturing_site" class="data-value">-</span>
+          </div>
+
+          <div class="data-item">
+            <span class="data-key" data-i18n="label_type">Label Type</span>
+            <span id="label_type" class="data-value">-</span>
+          </div>
+
+          <div class="data-item">
+            <span class="data-key" data-i18n="record_status">Record Status</span>
+            <span id="record_status" class="data-value">-</span>
+          </div>
+
+          <div class="data-item data-item-full">
+            <span class="data-key" data-i18n="remarks">Remarks</span>
+            <span id="remarks" class="data-value">-</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
