@@ -10,7 +10,6 @@ const statusMessage = document.getElementById("statusMessage");
 const resultCard = document.getElementById("resultCard");
 const productTitle = document.getElementById("productTitle");
 const recordStatusPill = document.getElementById("recordStatusPill");
-const copyDirectLinkBtn = document.getElementById("copyDirectLinkBtn");
 const langButtons = document.querySelectorAll(".lang-btn");
 
 const fieldIds = [
@@ -30,13 +29,12 @@ const fieldIds = [
 const messages = {
   en: {
     heroTitle: "Anti-Counterfeit Verification",
-    heroSubtitle: "Enter the anti-counterfeit code or open a direct code URL to verify product data.",
+    heroSubtitle: "Fast, secure and trusted product authentication.",
     verifyTitle: "Verify Code",
-    verifyDescPrefix: "You can manually enter a code, or open this page with a URL path such as",
+    verifyInstruction: "Please enter your anti-counterfeit verification code.",
     inputPlaceholder: "Enter anti-counterfeit code",
     searchBtn: "Search",
     tryDemo: "Try Demo Code",
-    copyDirectLink: "Copy Direct Link",
     resultLabel: "Verification Result",
     anti_counterfeit_code: "Anti-counterfeit Code",
     company_name: "Company Name",
@@ -61,22 +59,18 @@ const messages = {
       success: (code) => `Code ${code} has been successfully verified.`,
       failed: "Verification failed or code not found.",
       connectionError: "Unable to connect to verification service.",
-      copyNeedCode: "Please enter a code before copying a direct link.",
-      copySuccess: "Direct verification link copied successfully.",
-      copyFail: (link) => `Copy failed. Direct link: ${link}`,
       verifiedProduct: "Verified Product",
       productInfo: "Product Information"
     }
   },
   "zh-Hant": {
     heroTitle: "防偽驗證系統",
-    heroSubtitle: "輸入防偽碼，或直接透過網址開啟指定代碼頁面以查驗產品資料。",
+    heroSubtitle: "快速、安全、可信賴的產品真偽驗證體驗。",
     verifyTitle: "查驗防偽碼",
-    verifyDescPrefix: "你可以手動輸入代碼，或直接使用網址路徑，例如",
+    verifyInstruction: "請輸入您的防偽驗證碼。",
     inputPlaceholder: "請輸入防偽碼",
     searchBtn: "查詢",
     tryDemo: "試用 Demo Code",
-    copyDirectLink: "複製直達連結",
     resultLabel: "驗證結果",
     anti_counterfeit_code: "防偽碼",
     company_name: "公司名稱",
@@ -101,22 +95,18 @@ const messages = {
       success: (code) => `代碼 ${code} 已成功完成驗證。`,
       failed: "驗證失敗，或查無此代碼。",
       connectionError: "目前無法連線到驗證服務。",
-      copyNeedCode: "請先輸入代碼，再複製直達連結。",
-      copySuccess: "已成功複製直達驗證連結。",
-      copyFail: (link) => `複製失敗，請手動使用連結：${link}`,
       verifiedProduct: "已驗證產品",
       productInfo: "產品資訊"
     }
   },
   "zh-Hans": {
     heroTitle: "防伪验证系统",
-    heroSubtitle: "输入防伪码，或直接通过网址打开指定代码页面以验证产品资料。",
+    heroSubtitle: "快速、安全、可信赖的产品真伪验证体验。",
     verifyTitle: "验证防伪码",
-    verifyDescPrefix: "你可以手动输入代码，或直接使用网址路径，例如",
+    verifyInstruction: "请输入您的防伪验证码。",
     inputPlaceholder: "请输入防伪码",
     searchBtn: "查询",
     tryDemo: "试用 Demo Code",
-    copyDirectLink: "复制直达链接",
     resultLabel: "验证结果",
     anti_counterfeit_code: "防伪码",
     company_name: "公司名称",
@@ -141,22 +131,18 @@ const messages = {
       success: (code) => `代码 ${code} 已成功完成验证。`,
       failed: "验证失败，或未找到该代码。",
       connectionError: "目前无法连接到验证服务。",
-      copyNeedCode: "请先输入代码，再复制直达链接。",
-      copySuccess: "已成功复制直达验证链接。",
-      copyFail: (link) => `复制失败，请手动使用链接：${link}`,
       verifiedProduct: "已验证产品",
       productInfo: "产品信息"
     }
   },
   ja: {
     heroTitle: "真贋認証システム",
-    heroSubtitle: "認証コードを入力するか、コード付きURLを直接開いて製品情報を確認できます。",
+    heroSubtitle: "高速・安全・信頼性の高い製品認証体験。",
     verifyTitle: "コード認証",
-    verifyDescPrefix: "コードを手動で入力するか、次のようなURLパスでこのページを開くこともできます",
+    verifyInstruction: "認証コードを入力してください。",
     inputPlaceholder: "認証コードを入力してください",
     searchBtn: "検索",
     tryDemo: "デモコードを試す",
-    copyDirectLink: "ダイレクトリンクをコピー",
     resultLabel: "認証結果",
     anti_counterfeit_code: "認証コード",
     company_name: "会社名",
@@ -181,22 +167,18 @@ const messages = {
       success: (code) => `コード ${code} は正常に認証されました。`,
       failed: "認証に失敗したか、コードが見つかりませんでした。",
       connectionError: "認証サービスに接続できません。",
-      copyNeedCode: "リンクをコピーする前にコードを入力してください。",
-      copySuccess: "ダイレクト認証リンクをコピーしました。",
-      copyFail: (link) => `コピーに失敗しました。リンクはこちら: ${link}`,
       verifiedProduct: "認証済み製品",
       productInfo: "製品情報"
     }
   },
   ko: {
     heroTitle: "정품 인증 시스템",
-    heroSubtitle: "정품 코드를 입력하거나 직접 코드 URL을 열어 제품 정보를 확인할 수 있습니다.",
+    heroSubtitle: "빠르고 안전하며 신뢰할 수 있는 제품 인증 경험.",
     verifyTitle: "코드 확인",
-    verifyDescPrefix: "코드를 직접 입력하거나 다음과 같은 URL 경로로 이 페이지를 열 수 있습니다",
+    verifyInstruction: "정품 인증 코드를 입력해 주세요.",
     inputPlaceholder: "정품 코드를 입력하세요",
     searchBtn: "검색",
     tryDemo: "데모 코드 사용",
-    copyDirectLink: "직접 링크 복사",
     resultLabel: "인증 결과",
     anti_counterfeit_code: "정품 코드",
     company_name: "회사명",
@@ -221,9 +203,6 @@ const messages = {
       success: (code) => `코드 ${code} 인증이 완료되었습니다.`,
       failed: "인증에 실패했거나 코드를 찾을 수 없습니다.",
       connectionError: "인증 서비스에 연결할 수 없습니다.",
-      copyNeedCode: "링크를 복사하기 전에 코드를 입력해 주세요.",
-      copySuccess: "직접 인증 링크가 복사되었습니다.",
-      copyFail: (link) => `복사에 실패했습니다. 링크: ${link}`,
       verifiedProduct: "인증된 제품",
       productInfo: "제품 정보"
     }
@@ -321,11 +300,6 @@ function getCodeFromQuery() {
   return (params.get("code") || "").trim();
 }
 
-function buildDirectLink(code) {
-  const cleanPath = window.location.pathname.replace(/\/index\.html$/i, "") || "/";
-  return `${window.location.origin}${cleanPath}?code=${encodeURIComponent(code)}`;
-}
-
 async function verifyCode(code) {
   if (!code) {
     clearResult();
@@ -370,25 +344,6 @@ document.querySelectorAll("[data-code]").forEach((btn) => {
     codeInput.value = code;
     verifyCode(code);
   });
-});
-
-copyDirectLinkBtn.addEventListener("click", async () => {
-  const code = codeInput.value.trim() || getCodeFromQuery() || getCodeFromPath();
-
-  if (!code) {
-    setStatus("warning", t("feedback.copyNeedCode"));
-    return;
-  }
-
-  const link = buildDirectLink(code);
-
-  try {
-    await navigator.clipboard.writeText(link);
-    setStatus("success", t("feedback.copySuccess"));
-  } catch (error) {
-    console.error(error);
-    setStatus("warning", t("feedback.copyFail")(link));
-  }
 });
 
 langButtons.forEach((btn) => {
